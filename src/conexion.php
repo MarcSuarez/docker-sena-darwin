@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
+$servername = "mi-mysql";
 $username = "root";
-$password = "";
-$database = "proyecto_final_docker"; // cambia por tu BD
+$password = "1234";
+$database = "crud_db"; // cambia por tu BD
 
 $conn = new mysqli($servername, $username, $password, $database);
 
