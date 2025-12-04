@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "crud_php"; // cambia por tu BD
+$database = "proyecto_final_docker"; // cambia por tu BD
 
 $conn = new mysqli($servername, $username, $password, $database);
 
