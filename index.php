@@ -18,7 +18,10 @@ $resultado = $conn->query("SELECT * FROM usuarios");
     <tr>
         <th>ID</th>
         <th>Nombre</th>
-        <th>Email</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Edad</th>
+        <th>Género</th>
         <th>Acciones</th>
     </tr>
 
@@ -26,10 +29,13 @@ $resultado = $conn->query("SELECT * FROM usuarios");
     <tr>
         <td><?= $fila['id'] ?></td>
         <td><?= $fila['nombre'] ?></td>
-        <td><?= $fila['email'] ?></td>
+        <td><?= $fila['apellido'] ?></td>
+        <td><?= $fila['correo'] ?></td>
+        <td><?= $fila['edad'] ?></td>
+        <td><?= $fila['genero'] ?></td>
         <td>
             <a href="editar.php?id=<?= $fila['id'] ?>">Editar</a> |
-            <a href="eliminar.php?id=<?= $fila['id'] ?>" onclick="return confirm('¿Eliminar?')">Eliminar</a>
+            <a href="eliminar.php?id=<?= $fila['id'] ?>" onclick="return confirm('¿Eliminar este registro?')">Eliminar</a>
         </td>
     </tr>
     <?php } ?>

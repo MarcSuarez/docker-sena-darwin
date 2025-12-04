@@ -3,9 +3,14 @@ include 'conexion.php';
 
 if ($_POST) {
     $nombre = $_POST['nombre'];
-    $email = $_POST['email'];
+    $apellido = $_POST['apellido'];
+    $correo = $_POST['correo'];
+    $edad = $_POST['edad'];
+    $genero = $_POST['genero'];
 
-    $conn->query("INSERT INTO usuarios (nombre, email) VALUES ('$nombre', '$email')");
+    $conn->query("INSERT INTO usuarios (nombre, apellido, correo, edad, genero) 
+                  VALUES ('$nombre', '$apellido', '$correo', $edad, '$genero')");
+
     header("Location: index.php");
     exit();
 }
@@ -22,7 +27,19 @@ if ($_POST) {
 
 <form method="POST">
     Nombre: <input type="text" name="nombre" required><br><br>
-    Email: <input type="email" name="email" required><br><br>
+    Apellido: <input type="text" name="apellido" required><br><br>
+    Correo: <input type="email" name="correo" required><br><br>
+    Edad: <input type="number" name="edad" required><br><br>
+
+    Género:
+    <select name="genero" required>
+        <option value="">Seleccione</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Otro">Otro</option>
+    </select>
+    <br><br>
+
     <button type="submit">Guardar</button>
 </form>
 
