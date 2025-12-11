@@ -1,8 +1,8 @@
 <?php
-$servername = "mi-mysql";
-$username = "root";
-$password = "1234";
-$database = "crud_db"; // cambia por tu BD
+$servername = "mysql";
+$username   = "usuario";
+$password   = "pass123";
+$database   = "mi_base";
 
 $conn = new mysqli($servername, $username, $password, $database);
 

@@ -1,0 +1,44 @@
+services:
+  php_app:
+    image: mi-crud-php
+    container_name: php_app
+    ports:
+      - "8000:80"
+    volumes:
+      - ./src:/var/www/html
+    networks:
+      - red_app
+    environment:
+      APACHE_SERVER_NAME: localhost
+
+  mysql_server:
+    image: mysql:8.0
+    container_name: mysql_server
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: pass123
+      MYSQL_DATABASE: mi_base
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - red_app
+
+  phpmyadmin_app:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_app
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql_server
+      PMA_USER: usuario
+      PMA_PASSWORD: pass123
+    networks:
+      - red_app
+
+# No es estrictamente necesario declarar volumen y red, Docker Compose los crea automáticamente
+volumes:
+  mysql_data: {}
+
+networks:
+  red_app: {}
